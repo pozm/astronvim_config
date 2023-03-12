@@ -1,4 +1,5 @@
 -- set vim options here (vim.<first_key>.<second_key> = value)
+local win = vim.fn.has('win32') == 1;
 return {
   opt = {
     -- set to true or false etc.
@@ -7,7 +8,15 @@ return {
     spell = false,         -- sets vim.opt.spell
     signcolumn = "auto",   -- sets vim.opt.signcolumn to auto
     wrap = false,          -- sets vim.opt.wrap
-    guifont = { "FiraCode nf", "h14" }
+    guifont = { "FiraCode nf", "h14" },
+    shell = win and "pwsh.exe",
+    shellcmdflag =
+        win and
+        "-NoLogo -NoProfile -ExecutionPolicy RemoteSigned -Command [Console]::InputEncoding=[Console]::OutputEncoding=[System.Text.Encoding]::UTF8;",
+    shellredir = win and "2>&1 | Out-File -Encoding UTF8 %s; exit $LastExitCode",
+    shellpipe = win and "2>&1 | Out-File -Encoding UTF8 %s; exit $LastExitCode",
+    shellquote = win and "",
+    shellxquote = win and ""
   },
   g = {
     mapleader = " ",                 -- sets vim.g.mapleader
