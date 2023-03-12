@@ -2,6 +2,8 @@
 local win = vim.fn.has('win32') == 1;
 return {
   opt = {
+    tabstop = 4,
+    shiftwidth = 4,
     -- set to true or false etc.
     relativenumber = true, -- sets vim.opt.relativenumber
     number = true,         -- sets vim.opt.number
