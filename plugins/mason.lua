@@ -13,7 +13,7 @@ return {
     "jay-babu/mason-null-ls.nvim",
     -- overrides `require("mason-null-ls").setup(...)`
     opts = {
-      ensure_installed = { "rust-analzer", "typescript", "lua-language-server" },
+      ensure_installed = { "rust-analyzer", "typescript-language-server", "lua-language-server" },
     },
   },
   {
